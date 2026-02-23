@@ -130,8 +130,8 @@ box-shadow:0 0 25px #00ffff;
 <label>AFK (Rp5.000 / 24 Jam)</label>
 <input type="number" id="afk" placeholder="Jumlah Hari">
 
-<label>Misi Quest (Isi Harga)</label>
-<input type="number" id="questHarga" placeholder="Harga Disepakati">
+<label>Request Quest / Misi</label>
+<input type="text" id="questRequest" placeholder="Contoh: Selesaikan 10 Misi Laut">
 
 <div class="info">
 <div id="totalFish">Total: Rp0</div>
@@ -208,9 +208,8 @@ to.addEventListener("input",updateSummit);
 /* FISH */
 function updateFish(){
 let afk=parseInt(document.getElementById("afk").value)||0;
-let quest=parseInt(document.getElementById("questHarga").value)||0;
 
-let total=(afk*5000)+quest;
+let total=(afk*5000);
 document.getElementById("totalFish").innerText=
 "Total: Rp"+total.toLocaleString("id-ID");
 
@@ -229,9 +228,17 @@ window.open("https://wa.me/6282341447952?text=Order Summit:%0A"+total,"_blank");
 
 function orderFish(){
 let total=document.getElementById("totalFish").innerText;
-window.open("https://wa.me/6282341447952?text=Order Fish It:%0A"+total,"_blank");
+let quest=document.getElementById("questRequest").value || "Tidak ada request";
+
+let text = 
+"Order Fish It:%0A" +
+total + "%0A" +
+"Request Quest: " + quest;
+
+window.open("https://wa.me/6282341447952?text="+text,"_blank");
 }
 </script>
 
 </body>
+
 </html>
