@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anggara Gamers - Free Fire Sultan Mode</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+
+body{
+background:#000;
+color:white;
+overflow-x:hidden;
+position:relative;
+}
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 50% 30%, rgba(255,85,0,0.2), transparent 45%),
+radial-gradient(circle at 20% 80%, rgba(0,229,255,0.15), transparent 50%);
+filter:blur(120px);
+z-index:-2;
+animation:animBg 15s infinite alternate;
+}
+
+@keyframes animBg{
+0%{transform:scale(1);}
+100%{transform:scale(1.05);}
+}
+
+/* NAV */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:rgba(0,0,0,0.6);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,69,0,0.3);
+}
+
+header .logo{
+font-size:26px;
+font-weight:800;
+background:linear-gradient(90deg,#ff3d00,#ff9800);
+background-clip:text;
+-webkit-background-clip:text;
+color:transparent;
+-webkit-text-fill-color:transparent;
+text-shadow:0 0 15px rgba(255,61,0,0.4);
+}
+
+.back-btn{
+padding:8px 16px;
+background:#111;
+border:1px solid #ff3d00;
+color:#ff3d00;
+border-radius:10px;
+text-decoration:none;
+font-size:14px;
+transition:0.3s;
+}
+
+.back-btn:hover{
+background:#ff3d00;
+color:black;
+}
+
+/* SECTION */
+.container{
+max-width:820px;
+margin:40px auto;
+padding:20px;
+}
+
+.section{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,69,0,0.4);
+border-radius:20px;
+padding:30px;
+box-shadow:0 0 30px rgba(255,61,0,0.3);
+}
+
+.section h2{
+color:#ff3d00;
+margin-bottom:15px;
+font-size:22px;
+}
+
+select{
+width:100%;
+padding:12px;
+border-radius:12px;
+margin:8px 0;
+border:1px solid #ff3d00;
+background:#111;
+color:white;
+}
+
+/* PRICE BOX */
+.price-box{
+margin-top:20px;
+padding:20px;
+background:rgba(0,0,0,0.5);
+border-radius:18px;
+text-align:center;
+border:1px solid rgba(255,69,0,0.4);
+}
+
+.price-box h3{
+font-size:20px;
+margin-bottom:10px;
+}
+
+#totalHarga{
+font-size:26px;
+font-weight:800;
+background:linear-gradient(90deg,#00e5ff,#ff3d00);
+background-clip:text;
+-webkit-background-clip:text;
+color:transparent;
+-webkit-text-fill-color:transparent;
+animation:glowPrice 3s infinite alternate;
+}
+
+@keyframes glowPrice{
+0%{filter:drop-shadow(0 0 10px #00e5ff);}
+100%{filter:drop-shadow(0 0 25px #ff3d00);}
+}
+
+/* PROGRESS BAR */
+.progress{
+height:12px;
+background:#222;
+border-radius:8px;
+margin-top:10px;
+overflow:hidden;
+}
+
+.bar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00e5ff,#ff9800);
+transition:0.5s ease;
+}
+
+/* BUTTON */
+button.order-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:30px;
+background:linear-gradient(90deg,#00e5ff,#ff3d00);
+font-weight:700;
+color:black;
+margin-top:15px;
+cursor:pointer;
+transition:0.4s;
+}
+
+button.order-btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px #00e5ff;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:25px;
+color:#aaa;
+font-size:14px;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">ANGGARA GAMERS - FREE FIRE</div>
+<a href="index.html" class="back-btn">⬅ Kembali</a>
+</header>
+
+<div class="container">
+
+<div class="section">
+<h2>Custom Rank Request (Free Fire)</h2>
+
+<label>Dari Rank:</label>
+<select id="fromRank">
+<option value="1">Bronze</option>
+<option value="2">Silver</option>
+<option value="3">Gold</option>
+<option value="4">Platinum</option>
+<option value="5">Diamond</option>
+<option value="6">Heroic</option>
+</select>
+
+<label>Ke Rank:</label>
+<select id="toRank">
+<option value="2">Silver</option>
+<option value="3">Gold</option>
+<option value="4">Platinum</option>
+<option value="5">Diamond</option>
+<option value="6">Heroic</option>
+<option value="7">Master</option>
+<option value="8">Elite Master</option>
+</select>
+
+<label>Pilih Mode:</label>
+<select id="modeRank">
+<option value="BR">Ranked Battle Royale (BR)</option>
+<option value="CS">Ranked Clash Squad (CS)</option>
+</select>
+
+<div class="price-box">
+<h3>Total Harga</h3>
+<div id="totalHarga">Rp0</div>
+<div class="progress">
+<div class="bar" id="progressBar"></div>
+</div>
+</div>
+
+<button class="order-btn" onclick="orderFF()">Order Sekarang</button>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Anggara Gamers | Free Fire Boosting
+</footer>
+
+<script>
+function getHarga(rank, mode){
+if(mode === "BR"){
+if(rank <= 2) return 16000;
+if(rank == 3) return 20000;
+if(rank == 4) return 26000;
+if(rank == 5) return 39000;
+if(rank == 6) return 57000;
+if(rank == 7) return 63000;
+if(rank == 8) return 72000;
+return 100000;
+}
+if(mode === "CS"){
+if(rank <= 2) return 15000;
+if(rank == 3) return 21000;
+if(rank == 4) return 26000;
+if(rank == 5) return 39000;
+if(rank == 6) return 50000;
+if(rank == 7) return 62000;
+if(rank == 8) return 76000;
+return 85000;
+}
+}
+
+function updateHarga(){
+let from = parseInt(document.getElementById("fromRank").value);
+let to = parseInt(document.getElementById("toRank").value);
+let mode = document.getElementById("modeRank").value;
+
+if(to <= from){
+document.getElementById("totalHarga").innerText = "Rp0";
+document.getElementById("progressBar").style.width = "0%";
+return;
+}
+
+let total = 0;
+for(let i=from; i<to; i++){
+total += getHarga(i, mode);
+}
+
+document.getElementById("totalHarga").innerText = 
+"Rp" + total.toLocaleString("id-ID");
+
+// progress bar
+let range = to - from;
+let percent = Math.min(100, (range / 7) * 100);
+document.getElementById("progressBar").style.width = percent + "%";
+}
+
+function orderFF(){
+let fromSelect = document.getElementById("fromRank");
+let toSelect = document.getElementById("toRank");
+let modeText = document.getElementById("modeRank").selectedOptions[0].text;
+
+let from = parseInt(fromSelect.value);
+let to = parseInt(toSelect.value);
+if(to <= from){
+alert("Rank tujuan harus lebih tinggi!");
+return;
+}
+
+let total = 0;
+for(let i=from; i<to; i++){
+total += getHarga(i, document.getElementById("modeRank").value);
+}
+
+window.open(
+"https://wa.me/6282341447952?text=Halo Admin Anggara Gamers, saya ingin order Joki Free Fire:%0A%0AMode: "
++ modeText +
+"%0ADari Rank: " + fromSelect.options[fromSelect.selectedIndex].text +
+"%0AKe Rank: " + toSelect.options[toSelect.selectedIndex].text +
+"%0ATotal Harga: Rp" + total.toLocaleString("id-ID"),
+"_blank"
+);
+}
+
+/* AUTO UPDATE */
+document.getElementById("fromRank").addEventListener("change", updateHarga);
+document.getElementById("toRank").addEventListener("change", updateHarga);
+document.getElementById("modeRank").addEventListener("change", updateHarga);
+
+updateHarga();
+</script>
+
+</body>
+</html>

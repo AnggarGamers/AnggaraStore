@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Joki PUBG Mobile | Anggara Gamers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#000;
+color:white;
+}
+
+/* Navbar */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+align-items:center;
+}
+
+.logo{
+font-weight:700;
+font-size:20px;
+background:linear-gradient(90deg,#ff9800,#00e5ff);
+background-clip:text;
+-webkit-background-clip:text;
+color:transparent;
+-webkit-text-fill-color:transparent;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+}
+
+/* Container */
+.container{
+max-width:600px;
+margin:60px auto;
+padding:30px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+border-radius:20px;
+border:1px solid rgba(255,255,255,0.1);
+box-shadow:0 0 30px rgba(0,242,255,0.2);
+}
+
+h1{
+text-align:center;
+margin-bottom:25px;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+select{
+padding:12px;
+border-radius:10px;
+border:none;
+outline:none;
+}
+
+.result-box{
+margin-top:15px;
+padding:15px;
+background:rgba(0,242,255,0.1);
+border-radius:10px;
+font-size:14px;
+}
+
+button{
+margin-top:10px;
+padding:12px;
+border:none;
+border-radius:30px;
+background:linear-gradient(90deg,#ff6a00,#00f2ff);
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px #00f2ff;
+}
+
+footer{
+text-align:center;
+padding:30px;
+opacity:0.5;
+font-size:13px;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">ANGGARA GAMERS</div>
+<div>
+<a href="index.html">Home</a>
+</div>
+</nav>
+
+<div class="container">
+<h1>Order Joki PUBG Mobile</h1>
+
+<button type="button" onclick="kirimWhatsApp()">Order Sekarang</button>
+
+<select id="mode" required>
+<option value="">Pilih Mode</option>
+<option value="Solo">Solo</option>
+<option value="Duo">Duo</option>
+<option value="Squad">Squad</option>
+</select>
+
+<select id="rankawal" onchange="hitungHarga()" required>
+<option value="">Rank Awal</option>
+
+<option value="1">Bronze V</option>
+<option value="2">Bronze IV</option>
+<option value="3">Bronze III</option>
+<option value="4">Bronze II</option>
+<option value="5">Bronze I</option>
+
+<option value="6">Silver V</option>
+<option value="7">Silver IV</option>
+<option value="8">Silver III</option>
+<option value="9">Silver II</option>
+<option value="10">Silver I</option>
+
+<option value="11">Gold V</option>
+<option value="12">Gold IV</option>
+<option value="13">Gold III</option>
+<option value="14">Gold II</option>
+<option value="15">Gold I</option>
+
+<option value="16">Platinum V</option>
+<option value="17">Platinum IV</option>
+<option value="18">Platinum III</option>
+<option value="19">Platinum II</option>
+<option value="20">Platinum I</option>
+
+<option value="21">Diamond V</option>
+<option value="22">Diamond IV</option>
+<option value="23">Diamond III</option>
+<option value="24">Diamond II</option>
+<option value="25">Diamond I</option>
+
+<option value="26">Crown V</option>
+<option value="27">Crown IV</option>
+<option value="28">Crown III</option>
+<option value="29">Crown II</option>
+<option value="30">Crown I</option>
+
+<option value="31">Ace I</option>
+<option value="32">Ace II</option>
+<option value="33">ACE III</option>
+<option value="34">ACE IV</option>
+<option value="35">ACE V</option>  
+<option value="36">Ace Master</option> 
+ 
+</select>
+
+<select id="ranktujuan" onchange="hitungHarga()" required>
+<option value="">Rank Tujuan</option>
+
+<option value="1">Bronze V</option>
+<option value="2">Bronze IV</option>
+<option value="3">Bronze III</option>
+<option value="4">Bronze II</option>
+<option value="5">Bronze I</option>
+
+<option value="6">Silver V</option>
+<option value="7">Silver IV</option>
+<option value="8">Silver III</option>
+<option value="9">Silver II</option>
+<option value="10">Silver I</option>
+
+<option value="11">Gold V</option>
+<option value="12">Gold IV</option>
+<option value="13">Gold III</option>
+<option value="14">Gold II</option>
+<option value="15">Gold I</option>
+
+<option value="16">Platinum V</option>
+<option value="17">Platinum IV</option>
+<option value="18">Platinum III</option>
+<option value="19">Platinum II</option>
+<option value="20">Platinum I</option>
+
+<option value="21">Diamond V</option>
+<option value="22">Diamond IV</option>
+<option value="23">Diamond III</option>
+<option value="24">Diamond II</option>
+<option value="25">Diamond I</option>
+
+<option value="26">Crown V</option>
+<option value="27">Crown IV</option>
+<option value="28">Crown III</option>
+<option value="29">Crown II</option>
+<option value="30">Crown I</option>
+
+<option value="31">Ace I</option>
+<option value="32">Ace II</option>
+<option value="33">ACE III</option>
+<option value="34">ACE IV</option>
+<option value="35">ACE V</option> 
+
+<option value="36">Ace Master 6</option>
+<option value="37">Ace Master 7</option>
+<option value="38">Ace Master 8</option>
+<option value="39">Ace Master 9</option>
+<option value="40">Ace Master 10</option>
+
+<option value="41">Ace Dominator 11</option>
+<option value="42">Ace Dominator 12</option>
+<option value="43">Ace Dominator 13</option>
+<option value="44">Ace Dominator 14</option>
+<option value="45">Ace Dominator 15</option>
+</select>
+
+<div class="result-box">
+<div>💰 Harga: <span id="harga">-</span></div>
+<div>⏳ Estimasi: <span id="estimasi">-</span></div>
+</div>
+
+</form>
+</div>
+
+<footer>
+© 2026 Anggara Gamers | Joki PUBG Mobile
+</footer>
+
+<script>
+function getHargaPerLevel(rank){
+
+// Bronze
+if(rank >= 1 && rank <= 5) return 4000;
+
+// Silver
+if(rank >= 6 && rank <= 10) return 6000;
+
+// Gold
+if(rank >= 11 && rank <= 15) return 8000;
+
+// Platinum
+if(rank >= 16 && rank <= 20) return 12000;
+
+// Diamond
+if(rank >= 21 && rank <= 25) return 14000;
+
+// Crown
+if(rank >= 26 && rank <= 30) return 17000;
+
+// Ace I – V
+if(rank >= 31 && rank <= 35) return 22000;
+
+// Ace Master 6 – 10
+if(rank >= 36 && rank <= 40) return 26000;
+
+// Ace Dominator 11 – 15
+if(rank >= 41 && rank <= 45) return 29000;
+
+return 0;
+}
+
+function getTier(rank){
+
+if(rank <= 5) return 1;
+if(rank <= 10) return 2;
+if(rank <= 15) return 3;
+if(rank <= 20) return 4;
+if(rank <= 25) return 5;
+if(rank <= 30) return 6;
+if(rank <= 35) return 7;
+if(rank <= 40) return 8;
+if(rank <= 45) return 9;
+}
+
+function hitungHarga(){
+
+let awal = parseInt(document.getElementById("rankawal").value);
+let tujuan = parseInt(document.getElementById("ranktujuan").value);
+
+if(awal && tujuan && tujuan > awal){
+
+let total = 0;
+
+for(let i = awal; i < tujuan; i++){
+total += getHargaPerLevel(i);
+}
+
+let diskon = 0;
+
+// ===== DISKON DASAR =====
+if(awal <= 5 && tujuan <= 25){
+diskon = 0.20;
+}
+else if(tujuan >= 26 && tujuan <= 30){
+diskon = 0.10;
+}
+else if(tujuan >= 31){
+diskon = 0.15;
+}
+
+// ===== CEK LEWAT BERAPA TIER =====
+let tierAwal = getTier(awal);
+let tierTujuan = getTier(tujuan);
+let selisihTier = tierTujuan - tierAwal;
+
+// Jika melewati 3 tier atau lebih
+if(selisihTier >= 3){
+diskon += 0.09; // tambahan 9%
+}
+
+// Batasi diskon maksimal 25%
+if(diskon > 0.25){
+diskon = 0.25;
+}
+
+let totalAkhir = total - (total * diskon);
+
+// Minimal order
+if(totalAkhir < 25000){
+totalAkhir = 25000;
+}
+
+// ===== ESTIMASI =====
+let selisih = tujuan - awal;
+let estimasiMin = 1;
+let estimasiMax = 2;
+
+if(tierTujuan >= 6){
+estimasiMin = 2;
+estimasiMax = 3;
+}
+
+if(tierTujuan >= 7){
+estimasiMin = 3;
+estimasiMax = 5;
+}
+
+if(selisihTier >= 3){
+estimasiMin += 1;
+estimasiMax += 1;
+}
+
+document.getElementById("harga").innerText =
+"Rp " + Math.round(totalAkhir).toLocaleString();
+
+document.getElementById("estimasi").innerText =
+estimasiMin + " - " + estimasiMax + " Hari";
+
+} else {
+document.getElementById("harga").innerText = "-";
+document.getElementById("estimasi").innerText = "-";
+}
+}
+</script>
+
+<script>
+function kirimWhatsApp(){
+
+let mode = document.getElementById("mode").value;
+let rankAwal = document.getElementById("rankawal");
+let rankTujuan = document.getElementById("ranktujuan");
+
+let harga = document.getElementById("harga").innerText;
+let estimasi = document.getElementById("estimasi").innerText;
+
+if(!mode || !rankAwal.value || !rankTujuan.value){
+alert("Lengkapi pilihan terlebih dahulu!");
+return;
+}
+
+let pesan = 
+`Halo Admin Anggara Gamers 👋%0A%0A` +
+`Saya ingin order Joki PUBG Mobile:%0A%0A` +
+`🎮 Mode: ${mode}%0A` +
+`📊 Rank Awal: ${rankAwal.options[rankAwal.selectedIndex].text}%0A` +
+`🏆 Rank Tujuan: ${rankTujuan.options[rankTujuan.selectedIndex].text}%0A%0A` +
+`💰 Estimasi Harga: ${harga}%0A` +
+`⏳ Estimasi Waktu: ${estimasi}%0A%0A` +
+`Mohon info proses selanjutnya 🙏`;
+
+window.open(`https://wa.me/6282341447952?text=${pesan}`, "_blank");
+}
+</script>
+
+</body>
+</html>
